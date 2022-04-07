@@ -1,34 +1,18 @@
-def get_maior (q, q1):
-  if q >= q1 :
-    return q
-  else: 
-    return q1
+lista = []
+soma = 0
+qt = input('Quantidade de notas ')
 
-def get_media (q, q1):
-  return (q+q1)/2
+#append (acrescentar na lista)
+for n in range(0,int(qt)): 
+    lista.append(int(input(f"Nota do jurado {n+1} ")))
 
-def aprovado (media):
-  if media >= 6:
-    return True
+print ('Maior número da lista: ', max(lista))   
+print ('Menor número da lista: ', min(lista))  
 
-q = float(input("Prova 1\n"))
-q1 = float(input("Prova 2\n"))
-
-maior = get_maior(q,q1)
-media = get_media(q,q1)
-Isaprovado = aprovado(media)
-
-
-if Isaprovado == True : 
-  print("Aprovado ")
-else:
-  sub = float(input("Digite uma nota substutiva\n"))
-  if (sub+maior)/2 >= 6:
-    print("Aprovado ") 
-  else:
-    exame = float(input("Digite a nota de Exame\n"))
-    if (exame+media)/2 >= 6:
-      print("Aprovado ")
-    else:
-      print("Conseguiu reprovar ")
-
+#faz a soma dos itens na lista e resulta na soma
+for number in lista:
+    soma += number
+  
+# subtrai o valor maximo e minimo e divide por 8 para tirar a média entre as 8 notas validas
+soma = (soma - max(lista) - min(lista)) / 8
+print (soma)
